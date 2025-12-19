@@ -1,82 +1,393 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
 	<meta charset="utf-8">
-	<title>Trang web cá nhân của Nguyễn Tấn Phú</title>
+	<title>Trang web cá nhân | Nguyễn Tấn Phú</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 	<style>
-		p{color: white; font-size: 20px}
-		h1{color: #4af7f7;}
-		body{background-color: #242d2c;}
-		audio{background}
-		caption{color: firebrick; font-size: 18px}
-		textarea{background-color: #4b5e5b; font-family: Times New Roman; color: white; font-size: 16px}
-		td{color: #a3e2e5}
-		caption{color: #ea9b10;}
-		a{color: #3deaff}
-		.input_text{background-color: #4b5e5b; font-family: Times New Roman; color: white}
-		#nut_gui{background-color: #799090; color: white; font-size: 15px}
-		label{color: #65dc73}
+		.option {
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+			margin-top: 8px;
+			cursor: pointer;
+		}
+
+		.option span {
+			margin-left: 8px;
+			color: white;
+		}
+
+		.cbx {
+		 position: relative;
+		 top: 1px;
+		 width: 27px;
+		 height: 27px;
+		 border: 1px solid #c8ccd4;
+		 border-radius: 3px;
+		 vertical-align: middle;
+		 transition: background 0.1s ease;
+		 cursor: pointer;
+		 display: block;
+		}
+
+		.cbx:after {
+		 content: '';
+		 position: absolute;
+		 top: 2px;
+		 left: 8px;
+		 width: 7px;
+		 height: 14px;
+		 opacity: 0;
+		 transform: rotate(45deg) scale(0);
+		 border-right: 2px solid #fff;
+		 border-bottom: 2px solid #fff;
+		 transition: all 0.3s ease;
+		 transition-delay: 0.15s;
+		}
+
+		.lbl {
+		 margin-left: 5px;
+		 vertical-align: middle;
+		 cursor: pointer;
+		}
+
+		.option input:checked + .cbx {
+			border-color: transparent;
+			background: #6871f1;
+			animation: jelly 0.6s ease;
+		}
+
+		.option input:checked + .cbx:after {
+			opacity: 1;
+			transform: rotate(45deg) scale(1);
+		}
+
+		.cntr {
+		 position: relative;
+		}
+
+		@keyframes jelly {
+		 from {
+		  transform: scale(1, 1);
+		 }
+
+		 30% {
+		  transform: scale(1.25, 0.75);
+		 }
+
+		 40% {
+		  transform: scale(0.75, 1.25);
+		 }
+
+		 50% {
+		  transform: scale(1.15, 0.85);
+		 }
+
+		 65% {
+		  transform: scale(0.95, 1.05);
+		 }
+
+		 75% {
+		  transform: scale(1.05, 0.95);
+		 }
+
+		 to {
+		  transform: scale(1, 1);
+		 }
+		}
+
+		.hidden-xs-up {
+		 display: none!important;
+		}
+		*{
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		body{
+			margin: 0;
+			background: linear-gradient(135deg, #1f2b2a, #2e3f3e);
+			color: white;
+		}
+
+		.container{
+			width: 85%;
+			max-width: 1100px;
+			margin: auto;
+			padding: 30px 0;
+		}
+
+		h1, h2{
+			color: #4af7f7;
+			text-align: center;
+		}
+
+		h2{
+			margin-top: 40px;
+		}
+
+		.card{
+			background-color: #2f3f3d;
+			border-radius: 15px;
+			padding: 25px;
+			margin: 25px 0;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+		}
+
+		.avatar{
+			text-align: center;
+		}
+
+		.avatar img{
+			width: 200px;
+			border-radius: 50%;
+			border: 4px solid #4af7f7;
+		}
+
+		a{
+			color: #3deaff;
+			text-decoration: none;
+		}
+
+		a:hover{
+			text-decoration: underline;
+		}
+
+		table{
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 15px;
+		}
+
+		caption{
+			color: #ea9b10;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+
+		td, th{
+			border: 1px solid #5f7775;
+			padding: 10px;
+			text-align: center;
+			color: #a3e2e5;
+		}
+
+		audio, video{
+			width: 100%;
+			margin-top: 10px;
+			border-radius: 10px;
+		}
+
+		input, textarea{
+			width: 100%;
+			padding: 10px;
+			border-radius: 8px;
+			border: none;
+			background-color: #4b5e5b;
+			color: white;
+			margin-top: 5px;
+		}
+
+		label{
+			color: #65dc73;
+			display: block;
+			margin-top: 10px;
+		}
+
+		.checkbox-group label,
+		.radio-group label{
+			display: inline-block;
+			margin-right: 15px;
+			color: white;
+		}
+
+		#nut_gui{
+			background-color: #4af7f7;
+			color: #003333;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			margin-top: 15px;
+		}
+
+		#nut_gui:hover{
+			background-color: #2fdcdc;
+		}
+
+		footer{
+			text-align: center;
+			color: #aaa;
+			margin-top: 50px;
+			font-size: 14px;
+		}
 	</style>
 </head>
+
 <body>
-	<h1>Trang web cá nhân của Nguyễn Tấn Phú</h1>
-	<p>- Avatar:</p>
-	<img src = "gojo.jpg" width = "200">
-	<p>- Quê quán: <a href = "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj2kJvf75ORAxWCsVYBHeEQE90QFnoECEcQAQ&url=https%3A%2F%2Fvi.wikipedia.org%2Fwiki%2FQu%25E1%25BA%25A3ng_Nam&usg=AOvVaw0asxXA309w5UaZ8AiFpBqZ&opi=89978449">Quảng Nam</a></p>
-	<p>- Sở thích: Viết code, chơi game</p>
-	<p>- Ví dụ:</p>
-	<iframe src = "nhung.html" width = "900" height = "500"></iframe>
-	<p>- Nhạc yêu thích:</p>
-	<audio src = "GOJO VS SUKUNA FULL FIGHT AMV + ENDING SCENE 4K _ LADY GAGA - JUDAS.mp3" controls></audio>
-	<p>- Video yêu thích:</p> <video src = "GOJO VS SUKUNA FULL FIGHT AMV + ENDING SCENE 4K _ LADY GAGA - JUDAS.mp4" controls></video>
-	<table border = "1">
-		<caption>Bảng thời gian biểu trong ngày</caption>
-		<tr>
-			<td>Thời gian/ Thứ</td>
-			<td>Thứ 2</td>
-			<td>Thứ 3</td>
-			<td>Thứ 4</td>
-			<td>Thứ 5</td>
-			<td>Thứ 6</td>
-			<td>Thứ 7</td>
-		</tr>
-		<tr>
-			<td>6h-12h</td>
-			<td>Học trên trường</td>
-			<td>Học trên trường</td>
-			<td>Học trên trường</td>
-			<td>Học trên trường</td>
-			<td>Học trên trường</td>
-			<td>Học trên trường</td>
-		</tr>
-		<tr>
-			<td>13h-21h</td>
-			<td>Làm việc khác</td>
-			<td>Làm việc khác</td>
-			<td>Làm việc khác</td>
-			<td>Làm việc khác</td>
-			<td>Làm việc khác</td>
-			<td>Làm việc khác</td>
-		</tr>
-	</table>
-	<br>
-	<form action = "cam_on_da_gop_y.html" method = "GET">
-		<p>1. Thông tin về người góp ý:</p>
-		<label>Tên: <input class = "input_text" type = "text" name = "ten"></label>
-		<br>
-		<label>Địa chỉ email: <input class = "input_text" type = "text" name = "email"></label>
-		<p>Bạn có cùng môn thể thao sở thích với mình không?</p>
-		<label><input type = "checkbox" name = "football"> Đá banh</label>
-		<label><input type = "checkbox" name = "basketball"> Bóng rổ</label>
-		<label><input type = "checkbox" name = "badminton"> Cầu lông</label>
-		<label><p>2. Đóng góp ý kiến:</p>
-		<textarea rows = 10 cols = 50></textarea></label>
-		<p>Bạn thấy website này có ok không :D</p>
-		<label><input type = "radio" name = "cohaykhong"> Có</label>
-		<label><input type = "radio" name = "cohaykhong"> Không</label>
-		<br>
-		<br>
-		<input id = "nut_gui" type = "submit" value = "Gửi">
-	</form>
+
+	<div class="container">
+
+		<h1>Trang web cá nhân của Nguyễn Tấn Phú</h1>
+
+		<!-- Avatar -->
+		<div class="card avatar">
+			<img src="gojo.jpg" alt="Avatar">
+			<p>📍 Quê quán: 
+				<a href="https://vi.wikipedia.org/wiki/Qu%E1%BA%A3ng_Nam" target="_blank">Quảng Nam</a>
+			</p>
+			<p>💻 Sở thích: Viết code, chơi game</p>
+		</div>
+
+		<!-- Giới thiệu -->
+		<div class="card">
+			<h2>👤 Giới thiệu</h2>
+			<p>
+				Mình là Nguyễn Tấn Phú, học sinh yêu thích công nghệ, lập trình và sáng tạo.
+				Mình quan tâm đến AI, Computer Vision và các dự án ứng dụng thực tế.
+			</p>
+		</div>
+
+		<!-- Ví dụ nhúng -->
+		<div class="card">
+			<h2>🎮 Game yêu thích</h2>
+			<iframe src="nhung.html" width="100%" height="400"></iframe>
+		</div>
+
+		<!-- Media -->
+		<div class="card">
+			<h2>🎵 Nhạc & Video yêu thích</h2>
+			<audio src="GOJO VS SUKUNA FULL FIGHT AMV + ENDING SCENE 4K _ LADY GAGA - JUDAS.mp3" controls></audio>
+			<video src="GOJO VS SUKUNA FULL FIGHT AMV + ENDING SCENE 4K _ LADY GAGA - JUDAS.mp4" controls></video>
+		</div>
+
+		<!-- Thời gian biểu -->
+		<div class="card">
+			<h2>📅 Thời gian biểu</h2>
+			<table>
+				<caption>Bảng thời gian biểu trong ngày</caption>
+				<tr>
+					<td>Thời gian</td>
+					<td>Thứ 2</td>
+					<td>Thứ 3</td>
+					<td>Thứ 4</td>
+					<td>Thứ 5</td>
+					<td>Thứ 6</td>
+					<td>Thứ 7</td>
+				</tr>
+				<tr>
+					<td>6h - 12h</td>
+					<td colspan="6">Học trên trường</td>
+				</tr>
+				<tr>
+					<td>13h - 21h</td>
+					<td colspan="6">Làm việc khác</td>
+				</tr>
+			</table>
+		</div>
+		<!-- Dự án KHKT -->
+		<div class="card">
+			<h2>🔬 Dự án Khoa học Kỹ thuật</h2>
+
+			<p>
+				<strong>📌 Tên dự án:</strong><br>
+				Hệ thống Tin – Sinh học nhận diện biểu cảm và tư thế học sinh
+			</p>
+
+			<p>
+				<strong>🧠 Lĩnh vực:</strong><br>
+				Trí tuệ nhân tạo (AI) – Computer Vision – Giáo dục
+			</p>
+
+			<p>
+				<strong>🚀 Phiên bản hiện tại:</strong><br>
+				Đã nâng cấp lên <span style="color:#4af7f7; font-weight:600;">v5.0</span>
+			</p>
+
+			<p>
+				<strong>🌐 Website giới thiệu dự án:</strong><br>
+				<a href="https://epd-info.onrender.com" target="_blank">
+					https://epd-info.onrender.com
+				</a>
+			</p>
+
+			<p>
+				<strong>📝 Mô tả ngắn:</strong><br>
+				Dự án sử dụng AI để nhận diện biểu cảm khuôn mặt và tư thế ngồi học
+				của học sinh thông qua camera, từ đó hỗ trợ giáo viên theo dõi
+				trạng thái học tập và nâng cao hiệu quả giảng dạy.
+			</p>
+		</div>
+
+		<!-- Form góp ý -->
+		<div class="card">
+			<h2>✍️ Góp ý cho website</h2>
+			<form action="cam_on_da_gop_y.html" method="GET">
+
+				<label>Tên:
+					<input type="text" name="ten">
+				</label>
+
+				<label>Email:
+					<input type="text" name="email">
+				</label>
+
+				<p>Bạn có cùng sở thích thể thao không?</p>
+				<p>Bạn có cùng sở thích thể thao không?</p>
+
+				<div class="checkbox-group">
+					<label class="option">
+						<input type="checkbox" id="sport1" class="hidden-xs-up">
+						<span class="cbx"></span>
+						<span>Đá banh</span>
+					</label>
+
+					<label class="option">
+						<input type="checkbox" id="sport2" class="hidden-xs-up">
+						<span class="cbx"></span>
+						<span>Bóng rổ</span>
+					</label>
+
+					<label class="option">
+						<input type="checkbox" id="sport3" class="hidden-xs-up">
+						<span class="cbx"></span>
+						<span>Cầu lông</span>
+					</label>
+				</div>
+
+
+				<label>Ý kiến của bạn:
+					<textarea rows="6"></textarea>
+				</label>
+
+				<p>Bạn thấy website này có ổn không?</p>
+
+				<div class="radio-group">
+					<label class="option">
+						<input type="radio" name="cohaykhong" class="hidden-xs-up">
+						<span class="cbx"></span>
+						<span>Có</span>
+					</label>
+
+					<label class="option">
+						<input type="radio" name="cohaykhong" class="hidden-xs-up">
+						<span class="cbx"></span>
+						<span>Không</span>
+					</label>
+				</div>
+
+
+				<input id="nut_gui" type="submit" value="Gửi góp ý">
+			</form>
+		</div>
+
+		<footer>
+			© 2025 | Nguyễn Tấn Phú | Personal Website
+		</footer>
+
+	</div>
+
 </body>
 </html>
